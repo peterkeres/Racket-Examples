@@ -1,0 +1,74 @@
+MY TWO PRIME NUMBERS:
+
+p= 4007
+q= 8807
+
+
+MY NUMBERS SENT TO HIM TO ENCRYPT
+
+N = p*q
+N = 35,289,649
+  to pick next number, we have to find a number that is relatively prime to
+  (p-1) and (q-1).
+  in other words, a number that doesn't share any common factors between the 2
+  this will be E
+
+(4007 - 1) 4006
+(8807 - 1) 8806
+
+
+(p-1) * (q-1) = 35276836
+
+E = 3
+  3 does not have any common factors with any of the 2 numbers above
+  most people pick 3 because its computes fast and normally works.
+
+  with E and N, he can encrypt a message aka my public key
+
+MY PRIVATE KEY USED TO DECYRPT
+
+D = private KEY
+D = the inverse of E
+
+
+//new part of decrypt
+// I messed up, use the site
+
+(p-1) * (q-1) = 35276836
+ use this to find the D
+https://www.cryptool.org/en/cto-highlights/rsa-step-by-step
+use this to find the new D
+D = 23517891
+
+
+
+  in order to find D, we use his 'extended-euclid' method he provides us
+
+  we send extended-euclid 2 numbers, E and (p-1) aka (3, 4006)
+
+  of the numbers sent back, we take the first one (-1335) and add to it (p-1) aka 4006
+
+  which gives us 2,671
+
+D = 2,671
+
+
+the message i got back was
+
+6617277
+
+Now we take this and try to decode it, we use the following math formula
+(message) ^ D mod N
+6617277 ^ 2671 mod 35289649
+
+//new numbers after my mess up
+6617277 ^ 23517891 mod 35289649
+
+I used a simple webside to run this calculations
+https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/powermod.html
+
+the answer too this problem is the uncoded message
+which is : 9585924
+
+//real messaged
+654321
